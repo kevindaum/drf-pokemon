@@ -12,5 +12,5 @@ class Pokemon(models.Model):
 
 class Trainer(models.Model):
     name = models.CharField(max_length=30)
-    pokemons = models.ManyToManyField('Pokemon')
+    pokemon = models.ManyToManyField('Pokemon')
     team = models.ForeignKey('Team')

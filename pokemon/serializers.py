@@ -18,4 +18,4 @@ class TeamSerializer(serializers.ModelSerializer):
 class TrainerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trainer
-        fields = ('name', 'pokemons', 'team')
+        fields = ('name', 'pokemon', 'team')
