@@ -15,11 +15,10 @@ class PokemonView(viewsets.ModelViewSet):
 class TeamView(viewsets.ModelViewSet):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
-    lookup = 'team_pk'
 
     def get_queryset(self):
         queryset = Team.objects.all()
-        team_id = self.kwargs.get('team_pk', None)
+        team_id = self.kwargs.get('pk', None)
         if team_id:
             queryset = queryset.filter(id=team_id)
         return queryset
@@ -28,12 +27,11 @@ class TeamView(viewsets.ModelViewSet):
 class TrainerView(viewsets.ModelViewSet):
     queryset = Trainer.objects.all()
     serializer_class = TrainerSerializer
-    lookup = 'trainer_pk'
 
     def get_queryset(self):
         queryset = Trainer.objects.all()
         team_id = self.kwargs.get('team_pk', None)
-        trainer_id = self.kwargs.get('trainer_pk', None)
+        trainer_id = self.kwargs.get('pk', None)
         if team_id:
             queryset = queryset.filter(team=team_id)
         if trainer_id:
