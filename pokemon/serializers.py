@@ -14,20 +14,20 @@ class TeamSerializer(serializers.ModelSerializer):
 
 
 class TrainerSerializer(serializers.ModelSerializer):
-    pokemon = PokemonSerializer()
+    # pokemon = PokemonSerializer()
     team = TeamSerializer()
     class Meta:
         model = Trainer
         
-    def create(self, validated_data):
-        pokemon_data = validated_data.pop('pokemon')
-        # TODO: make it so I can pass a list of Pokemon instead of one
-        pokemon = Pokemon.objects.get(**pokemon_data)
-        team_data = validated_data.pop('team')
-        team = Team.objects.get(**team_data)
-        trainer = Trainer.objects.create(
-            pokemon=pokemon,
-            team=team,
-            **validated_data,
-        )
-        return trainer
+    # def create(self, validated_data):
+    #     pokemon_data = validated_data.pop('pokemon')
+    #     # TODO: make it so I can pass a list of Pokemon instead of one
+    #     pokemon = Pokemon.objects.get(**pokemon_data)
+    #     team_data = validated_data.pop('team')
+    #     team = Team.objects.get(**team_data)
+    #     trainer = Trainer.objects.create(
+    #         pokemon=pokemon,
+    #         team=team,
+    #         **validated_data,
+    #     )
+    #     return trainer
