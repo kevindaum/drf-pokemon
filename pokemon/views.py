@@ -10,3 +10,13 @@ from .serializers import TeamSerializer, PokemonSerializer, TrainerSerializer
 class PokemonView(viewsets.ModelViewSet):
     queryset = Pokemon.objects.all()
     serializer_class = PokemonSerializer
+
+
+class TeamView(viewsets.ModelViewSet):
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializer
+
+
+class TrainerView(viewsets.ModelViewSet):
+    queryset = Trainer.objects.all()
+    serializer_class = TrainerSerializer

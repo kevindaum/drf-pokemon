@@ -17,12 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from quick.views import UserView
-from pokemon.views import PokemonView
+from pokemon.views import PokemonView, TeamView, TrainerView
 
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('users', UserView)
 router.register('pokemon', PokemonView)
+router.register('teams', TeamView)
+router.register('trainers', TrainerView)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
