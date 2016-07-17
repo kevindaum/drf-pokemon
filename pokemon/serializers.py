@@ -15,7 +15,12 @@ class TeamSerializer(serializers.ModelSerializer):
 
 class TrainerSerializer(serializers.ModelSerializer):
     # pokemon = PokemonSerializer()
-    team = TeamSerializer()
+    team_id = serializers.PrimaryKeyRelatedField(
+        queryset=Team.objects.all(),
+        source='team',
+        write_only=True,
+    )
+    team = TeamSerializer(read_only=True)
     class Meta:
         model = Trainer
         
